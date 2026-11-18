@@ -1,0 +1,29 @@
+openapi: 3.0.0
+info:
+  title: API Лабораторної роботи №3
+  version: 1.0.0
+  description: Документація REST API для керування записами у базі даних PostgreSQL
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/tasks:
+    get:
+      summary: Отримання переліку всіх записів із БД
+      responses:
+        '200':
+          description: Успішне отримання списку об'єктів
+    post:
+      summary: Створення нового запису у БД
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: "Виконати лабораторну роботу №3"
+      responses:
+        '201':
+          description: Запис успішно збережено
